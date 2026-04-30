@@ -1,76 +1,73 @@
 /* =========================
-ANIMATIONS ONLY FILE
+WORKING ANIMATIONS FILE
 ========================= */
 
-/* базовые переменные */
+/* ОБЯЗАТЕЛЬНО — включает систему анимаций */
+@property --animations {
+syntax: 'off | on';
+inherits: false;
+initial-value: on;
+}
+
+/* контейнер (без него не работает) */
 body {
+container-name: body;
+--animations: on;
+
+```
 --list-item-transition: 0.2s ease;
 --dms-icon-svg-transition: 0.4s ease;
---border-hover-transition: 0.2s ease;
+```
+
 }
 
 /* =========================
-ПАНЕЛИ (hover рамки)
+ОСНОВНЫЕ АНИМАЦИИ
 ========================= */
-.container__89463 > *,
-.messagesWrapper__36d07,
-.channelTextArea_f75fb0,
-.wrapper__44df5 {
-transition: border-color var(--border-hover-transition);
-}
+@container body style(--animations: on) {
 
-.container__89463 > *:hover,
-.messagesWrapper__36d07:hover,
-.channelTextArea_f75fb0:hover,
-.wrapper__44df5:hover {
-border-color: var(--border-hover);
-}
-
-/* =========================
-СПИСКИ (основная анимация)
-========================= */
+```
+/* элементы списков */
 .wrapper__2ea32 .link__2ea32,
 .container__91a9d,
 .channel__972a0,
 .side_aa8da2 .item_aa8da2 {
-transition: margin-left var(--list-item-transition);
-will-change: margin-left;
+    transition: margin-left var(--list-item-transition);
+    will-change: margin-left;
 }
 
-/* сдвиг при наведении */
+/* ВЫДВИЖЕНИЕ */
 .wrapper__2ea32:hover .link__2ea32,
 .side_aa8da2 .item_aa8da2:hover {
-margin-left: 10px;
+    margin-left: 10px;
 }
 
 .container__91a9d:hover,
 .channel__972a0:hover {
-margin-left: 18px;
+    margin-left: 18px;
 }
 
-/* =========================
-ТОЧКА НЕПРОЧИТАННОГО
-========================= */
+/* ТОЧКА НЕПРОЧИТАННОГО */
 .unread__2ea32 {
-transition: var(--list-item-transition);
-will-change: margin-left;
+    border-radius: 50%;
+    width: 8px;
+    height: 8px;
+    margin-left: -4px;
+    transition: var(--list-item-transition);
+    will-change: margin-left;
 }
 
 .wrapper__2ea32:hover .unread__2ea32 {
-margin-left: 4px;
+    margin-left: 4px;
 }
 
 .typeThread__2ea32 .unread__2ea32 {
-margin-left: -8px;
+    margin-left: -8px;
 }
 
 .wrapper__2ea32.typeThread__2ea32:hover .unread__2ea32 {
-margin-left: 0px;
+    margin-left: 0px;
 }
+```
 
-/* =========================
-ДОПОЛНИТЕЛЬНО (оптимизация)
-========================= */
-[class*='scroll'] {
-will-change: scroll-position;
 }
