@@ -1,0 +1,76 @@
+/* =========================
+ANIMATIONS ONLY FILE
+========================= */
+
+/* базовые переменные */
+body {
+--list-item-transition: 0.2s ease;
+--dms-icon-svg-transition: 0.4s ease;
+--border-hover-transition: 0.2s ease;
+}
+
+/* =========================
+ПАНЕЛИ (hover рамки)
+========================= */
+.container__89463 > *,
+.messagesWrapper__36d07,
+.channelTextArea_f75fb0,
+.wrapper__44df5 {
+transition: border-color var(--border-hover-transition);
+}
+
+.container__89463 > *:hover,
+.messagesWrapper__36d07:hover,
+.channelTextArea_f75fb0:hover,
+.wrapper__44df5:hover {
+border-color: var(--border-hover);
+}
+
+/* =========================
+СПИСКИ (основная анимация)
+========================= */
+.wrapper__2ea32 .link__2ea32,
+.container__91a9d,
+.channel__972a0,
+.side_aa8da2 .item_aa8da2 {
+transition: margin-left var(--list-item-transition);
+will-change: margin-left;
+}
+
+/* сдвиг при наведении */
+.wrapper__2ea32:hover .link__2ea32,
+.side_aa8da2 .item_aa8da2:hover {
+margin-left: 10px;
+}
+
+.container__91a9d:hover,
+.channel__972a0:hover {
+margin-left: 18px;
+}
+
+/* =========================
+ТОЧКА НЕПРОЧИТАННОГО
+========================= */
+.unread__2ea32 {
+transition: var(--list-item-transition);
+will-change: margin-left;
+}
+
+.wrapper__2ea32:hover .unread__2ea32 {
+margin-left: 4px;
+}
+
+.typeThread__2ea32 .unread__2ea32 {
+margin-left: -8px;
+}
+
+.wrapper__2ea32.typeThread__2ea32:hover .unread__2ea32 {
+margin-left: 0px;
+}
+
+/* =========================
+ДОПОЛНИТЕЛЬНО (оптимизация)
+========================= */
+[class*='scroll'] {
+will-change: scroll-position;
+}
